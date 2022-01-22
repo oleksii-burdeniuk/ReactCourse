@@ -11,7 +11,8 @@ import News from './NavItems/News/News';
 import Settings from './NavItems/Settings/Settings';
 
 
-const App = () => {
+
+const App = (props) => {
   return (
     <BrowserRouter>
     <div className='app_wrapper'>
@@ -19,8 +20,8 @@ const App = () => {
         <Nav/>
         <div className='content'>
           <Routes>
-            <Route path = '/dialogs' element = {<Dialogs/>} />
-            <Route path = '/profile' element = {<Profile/>} />
+            <Route path = '/dialogs' element = {<Dialogs posts = {props.posts} dialogs = {props.dialogs} />} />
+            <Route path = '/profile' element = {<Profile messages = {props.messages}/>} />
             <Route path = '/news' element = {<News/>} />
             <Route path = '/music' element = {<Music/>} />
             <Route path = '/settings' element = {<Settings/>} />

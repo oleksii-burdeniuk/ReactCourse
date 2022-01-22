@@ -4,15 +4,9 @@ import Post from './Post/Post';
 
 
 
-let messages =[
-{message: 'Hello world' },
-{message: 'I am studying react ' },
-{message: 'I know how to use react' },
-{message: 'Do yo know how to use react?' },
-];
 
 
-const Posts = () =>{
+const Posts = (props) =>{
   return(
   <div className={s.postsBlock}> 
         <h3>My posts</h3>
@@ -22,10 +16,10 @@ const Posts = () =>{
         <div>
           <button>Add</button>
         </div>
-      <Post message={messages[0].message}/>
-      <Post message={messages[1].message}/>
-      <Post message={messages[2].message}/>
-      <Post message={messages[3].message}/>
+      <Post message={props.messages[0].message}/>
+      <Post message={props.messages[1].message}/>
+      <Post message={props.messages[2].message}/>
+      <Post message={props.messages[3].message}/>
     </div>
   );
 };
