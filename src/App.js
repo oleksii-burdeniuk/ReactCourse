@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import React from 'react';
 import './App.css';
 import Header from './Header/Header';
@@ -20,8 +19,8 @@ const App = (props) => {
         <Nav/>
         <div className='content'>
           <Routes>
-            <Route path = '/dialogs' element = {<Dialogs posts = {props.posts} dialogs = {props.dialogs} />} />
-            <Route path = '/profile' element = {<Profile messages = {props.messages}/>} />
+            <Route path = '/dialogs' element = {<Dialogs dialogsPage = {props.state.dialogsPage} />} />
+            <Route path = '/profile' element = {<Profile profilePage = {props.state.profilePage}  addPost = {props.addPost} /> } />
             <Route path = '/news' element = {<News/>} />
             <Route path = '/music' element = {<Music/>} />
             <Route path = '/settings' element = {<Settings/>} />

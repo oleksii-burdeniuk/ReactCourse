@@ -22,16 +22,21 @@ const Massage = (props) => {
 };
 
 const Dialogs = (props) =>{
-      let dialogsElements =  props.dialogs.map( dialog => <DialogItem name = {dialog.name} id = {dialog.id}/> );  
-      let messageElement =  props.posts.map(m => <Massage massage = {m.message}/>);
+     
+  let dialogsElements =  props.dialogsPage.dialogs.map( dialog => <DialogItem name = {dialog.name} id = {dialog.id}/> );  
+  let messageElement =  props.dialogsPage.messages.map(m => <Massage massage = {m.message}/>);
+
   return(
   <div className={s.dialogs}>
-       <div className={s.dialogs_items}>
-     {dialogsElements}
-      </div>
+       
+    <div className={s.dialogs_items}>
+        {dialogsElements}
+    </div>
+      
       <div className={s.messages}>
         {messageElement}
       </div>
+
   </div>
   );
 };
