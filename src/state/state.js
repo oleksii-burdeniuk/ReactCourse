@@ -1,5 +1,6 @@
-import {rerenderEntireTree} from '../render'
-let state = {
+let store = {
+
+_state : {
   profilePage:{
   posts : [
     {message: 'HI!'},
@@ -8,7 +9,9 @@ let state = {
     {message: 'where are you?!'},
     {message: 'call me back!!'},
     {message: 'white!'},
-    ]
+    ],
+    
+    newPostsText: 'itKamasutra.com'
   },
   
   dialogsPage:{
@@ -27,14 +30,33 @@ let state = {
       {message: 'I know how to use react' },
       {message: 'Do yo know how to use react?' },
       ]
-    }
-};
+    },
+   
+},
+getState () {
+  return this._state;
+},
 
-export let addPost = ( postMessage ) => {
-  let newPost = {
-    message: postMessage
-  };
-  state.profilePage.posts.push(newPost);
-  rerenderEntireTree(state)
+_callSubscriber() {
+  console.log('Hi!');
+},
+
+addPost()  {
+  let text = this._state.profilePage.newPostsText
+  let newPost = { message: text}
+
+  this._state.profilePage.posts.push(newPost);
+  this._callSubscriber(this._state)
+},
+
+updateNewPostText(newText)  {
+  this._state.profilePage.newPostsText = newText;
+  this._callSubscriber(this._state)
+},
+
+subscribe(observer)  {
+  this._callSubscriber = observer;
+},
+
 }
-export default state;
+export default store;
