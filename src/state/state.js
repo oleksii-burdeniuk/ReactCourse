@@ -33,29 +33,30 @@ _state : {
     },
    
 },
-getState () {
-  return this._state;
-},
-
 _callSubscriber() {
   console.log('Hi!');
 },
 
-addPost()  {
-  let text = this._state.profilePage.newPostsText
+getState () {
+  return this._state;
+},
+subscribe(observer)  {
+  this._callSubscriber = observer;
+},
+
+dispatch (action){
+  if (action.type === 'ADD-POST'){
+    let text = this._state.profilePage.newPostsText
   let newPost = { message: text}
 
   this._state.profilePage.posts.push(newPost);
+  this._state.profilePage.newPostsText = ''
   this._callSubscriber(this._state)
-},
-
-updateNewPostText(newText)  {
-  this._state.profilePage.newPostsText = newText;
-  this._callSubscriber(this._state)
-},
-
-subscribe(observer)  {
-  this._callSubscriber = observer;
+  }
+  else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+    this._state.profilePage.newPostsText = action.newText;
+    this._callSubscriber(this._state)
+  }
 },
 
 }
