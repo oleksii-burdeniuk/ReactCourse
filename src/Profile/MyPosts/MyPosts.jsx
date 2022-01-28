@@ -8,11 +8,9 @@ import {UpdateNewPostTextActionCreator} from '../../state/state';
 const Posts = (props) =>{
   
   let postsElement = props.posts.map( p => <Post message = {p.message} />);
-  
   let newPostElement = React.createRef();
   
   let addPost = () =>{
-   let text = newPostElement.current.value
    props.dispatch( addPostActionCreator() );
    
   }

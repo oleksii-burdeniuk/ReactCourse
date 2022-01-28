@@ -3,10 +3,13 @@
   background-color: rgb(37, 187, 37);
   padding: 20px;
  }
-a {
- color: white;
- text-decoration: none;
+ .item {
+ color: rgb(0, 0, 0);
  }
+ a {
+  text-decoration: none;
+}
+ 
  .active{
  color: yellow;
  }
