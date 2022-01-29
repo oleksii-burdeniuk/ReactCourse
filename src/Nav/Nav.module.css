@@ -3,10 +3,10 @@
   background-color: rgb(37, 187, 37);
   padding: 20px;
  }
- .item {
+ .items {
  color: rgb(0, 0, 0);
  }
- a {
+ .nav a {
   text-decoration: none;
 }
  

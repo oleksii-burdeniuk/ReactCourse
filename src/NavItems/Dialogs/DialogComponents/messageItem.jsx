@@ -1,5 +1,5 @@
 import react from "react";
-import s from './messageItem.css';
+import s from './messageItem.module.css';
 
 const Massage = (props) => {
   let path  = '/dialogs/';

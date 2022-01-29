@@ -1,0 +1,5 @@
+.massage{
+  color: rgb(0, 1, 66);
+  display: grid;
+  grid-template-rows: 25px;
+}

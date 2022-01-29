@@ -1,7 +1,8 @@
 .dialogs{
   display: grid;
-  grid-template-columns: 2fr 10fr;
-  color: rgb(24, 26, 26);
+  
   padding: 10px;
-  height: 50px;
 };
+.dialogs a{
+  text-decoration: none;
+}
