@@ -7,13 +7,11 @@ import Posts from './MyPosts';
 const  PostsContainer = (props) =>{
     
   let addPost = () =>{
-   
    props.dispatch( addPostActionCreator() );
    
   }
 
   let onPostChange = (text) =>{
-    
    let action = UpdateNewPostTextActionCreator(text)
    props.dispatch(action);
    

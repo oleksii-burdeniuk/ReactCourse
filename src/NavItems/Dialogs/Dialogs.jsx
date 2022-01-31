@@ -3,39 +3,37 @@ import { NavLink } from "react-router-dom";
 import s from './Dialogs.module.css';
 import DialogItem from './DialogComponents/DialogItem';
 import Massage from './DialogComponents/messageItem';
-import {addMessageActionCreator} from '../../state/dialogsPageReducer'
-import {addUserActionCreator} from '../../state/dialogsPageReducer'
+
 
 
 
 const Dialogs = (props) =>{
 
-  let dialogsElements =  props.dialogsPage.dialogs.map( dialog => <DialogItem name = {dialog.name} id = {dialog.id}/> );  
-  let messageElements =  props.dialogsPage.messages.map(m => <Massage massage = {m.message}/>);
-  let DefaultValue = props.dialogsPage.newMessageText
+  let dialogsElements =  props.dialogs.map( dialog => <DialogItem name = {dialog.name} id = {dialog.id}/> );  
+  let messageElements =  props.messages.map(m => <Massage massage = {m.message}/>);
+  let DefaultValue = props.newMessageText;
   
   
 
   let addMessage = () => {
-    props.dispatch( addUserActionCreator() );
+    props.addMessage();
   };
   let changeMessageData = (v) => {
     let text = v.target.value;
-   let action = addMessageActionCreator(text)
-   props.dispatch(action);
+    props.changeMessageData(text);
   }
 
   return(
     <div >
       <div className={s.dialogs}>
         <div> {dialogsElements} </div>
-        <div>{messageElements} </div>
+        <div> {messageElements} </div>
       </div>
       <div>
         <textarea onChange={changeMessageData} value = {DefaultValue}/>
         <button onClick={addMessage} >ADD</button>
       </div>
     </div>
-  );
+  )
 };
 export default Dialogs;
