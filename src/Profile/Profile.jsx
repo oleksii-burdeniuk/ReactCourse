@@ -11,9 +11,7 @@ const Profile = (props) =>{
   return(
     <div className={s.content}>
        <ProfileInfo/>
-        <PostsContainer 
-        store = {props.store}
-        dispatch = {props.dispatch} 
+        <PostsContainer  
         />
           
       

@@ -24,14 +24,12 @@ const App = (props) => {
           <Route 
                   path = '/dialogs' 
                   element = {<DialogsContainer 
-                  store = {props.store} 
-                  dispatch = {props.dispatch}/>} />
+                  />} />
             
             <Route 
                   path = '/profile' 
                   element = {<Profile 
-                  store = {props.store}
-                  dispatch = {props.dispatch}  /> } />
+                   /> } />
             
             <Route path = '/news' element = {<News/>} />
             <Route path = '/music' element = {<Music/>} />
