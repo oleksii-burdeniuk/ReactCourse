@@ -21,19 +21,26 @@ let initialState = {
     };
 
 const dialogsPageReducer = (state = initialState, action) => {
+  let stateCopy;
   switch(action.type){
-    case  UPDATE_NEW_DIALOG:
+    case  UPDATE_NEW_DIALOG:{
      let newUser = {id: 7, name: 'Ira', type: 'UPDATE-NEW-DIALOG',}
-     let text = state.newMessageText
-     let newMessage = {message: text }
-     state.messages.push(newMessage)
-     state.dialogs.push(newUser)
-     state.newMessageText = ''
-      return state;
-  
-    case  UPDATE_NEW_MESSAGE_TEXT:
-      state.newMessageText = action.newMessage
-      return state;
+     let text = state.newMessageText;
+     let newMessage = {message: text };
+     return stateCopy = {
+       ...state,
+       dialogs: [...state.dialogs, newUser],
+       messages: [...state.messages, newMessage],
+       newMessageText: ''
+      };
+    }
+    
+    case  UPDATE_NEW_MESSAGE_TEXT:{
+    return stateCopy = {
+      ...state,
+      newMessageText: action.newMessage,
+    };
+    }
       default: return state;
     }
 };
@@ -41,12 +48,12 @@ const dialogsPageReducer = (state = initialState, action) => {
 export const addMessageActionCreator = (text) =>{
   return {
     newMessage: text ,
-    type: 'UPDATE-NEW-MESSAGE-TEXT' , 
+    type: 'UPDATE-NEW-MESSAGE-TEXT',
   }
 };
 export const addUserActionCreator = () =>{
   return {
-     type: 'UPDATE-NEW-DIALOG'
+     type: 'UPDATE-NEW-DIALOG',
   }
 };
 export default dialogsPageReducer;

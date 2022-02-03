@@ -3,32 +3,37 @@ const ADD_POST = 'ADD-POST';
 
 let initialState = {
   posts : [
-    {message: 'HI!'},
-    {message: 'what is up?!'},
-    {message: 'I am hear!'},
-    {message: 'where are you?!'},
-    {message: 'call me back!!'},
-    {message: 'white!'}, 
+    {id:1, message: 'HI!'},
+    {id:2, message: 'what is up?!'},
+    {id:3, message: 'I am hear!'},
+    {id:4, message: 'where are you?!'},
+    {id:5, message: 'call me back!!'},
+    {id:6, message: 'white!'}, 
   ],
   newPostsText: 'hello1'
 };
 
 const profilePageReducer = (state = initialState, action) => {
+  let stateCopy
   switch(action.type){
-  case ADD_POST: 
+  case ADD_POST: {
     let text = state.newPostsText
     let newPost = { message: text}
-    state.posts.push(newPost);
-    state.newPostsText = ''
-    return state;
-    
-  case  UPDATE_NEW_POST_TEXT:
-      state.newPostsText = action.newText;
-      return state;
-      default: return state;
+    return stateCopy = {
+      ...state,
+      posts: [...state.posts, newPost],
+      newPostsText: '',
+      };
     }
-    
-  
+
+  case  UPDATE_NEW_POST_TEXT:{
+      return stateCopy = {
+        ...state,
+        newPostsText: action.newText,
+      };  
+    }
+    default: return state
+  }
 };
 
 export const addPostActionCreator = () => {
