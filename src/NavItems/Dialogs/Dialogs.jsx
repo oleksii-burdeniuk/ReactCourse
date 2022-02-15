@@ -7,13 +7,13 @@ import Massage from './DialogComponents/messageItem';
 
 
 
-const Dialogs = (props) =>{
+const Dialogs = (props) => {
 
-  let dialogsElements =  props.dialogs.map( dialog => <DialogItem name = {dialog.name} id = {dialog.id}/> );  
-  let messageElements =  props.messages.map(m => <Massage massage = {m.message}/>);
+  let dialogsElements = props.dialogs.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />);
+  let messageElements = props.messages.map(m => <Massage massage={m.message} />);
   let DefaultValue = props.newMessageText;
-  
-  
+
+
 
   let addMessage = () => {
     props.addMessage();
@@ -23,14 +23,14 @@ const Dialogs = (props) =>{
     props.changeMessageData(text);
   }
 
-  return(
+  return (
     <div >
       <div className={s.dialogs}>
         <div> {dialogsElements} </div>
         <div> {messageElements} </div>
       </div>
       <div>
-        <textarea onChange={changeMessageData} value = {DefaultValue}/>
+        <textarea onChange={changeMessageData} value={DefaultValue} />
         <button onClick={addMessage} >ADD</button>
       </div>
     </div>

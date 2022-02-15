@@ -1,7 +1,7 @@
 import react from "react";
 
-const News = () =>{
-  return(
+const News = () => {
+  return (
     <p> Hello this is news</p>
   );
 };

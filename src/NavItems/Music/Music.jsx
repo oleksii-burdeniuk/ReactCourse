@@ -1,6 +1,6 @@
 import react from "react";
-const Music = ( ) =>{
-  return(
+const Music = () => {
+  return (
     <p> hello it is music</p>
   );
 };
