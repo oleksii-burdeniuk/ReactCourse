@@ -3,5 +3,8 @@
   background-color: rgb(37, 187, 37);
   }
   .header img {
-    width: 60px;
+    height: 90%;
+  }
+  .logo {
+    padding: 10;
   }

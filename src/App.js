@@ -2,15 +2,13 @@ import React from 'react';
 import './App.css';
 import Header from './Header/Header';
 import Nav from './Nav/Nav';
-import Profile from './Profile/Profile';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, } from 'react-router-dom';
 import Music from './NavItems/Music/Music';
 import News from './NavItems/News/News';
 import Settings from './NavItems/Settings/Settings';
 import DialogsContainer from './NavItems/Dialogs/DialogsContainer';
 import UsersContainer from './Users/UsersContainer';
-
-
+import ProfileContainer from './Profile/ProfileContainer';
 
 
 const App = (props) => {
@@ -20,19 +18,17 @@ const App = (props) => {
         <Header />
         <Nav />
         <div className='content'>
-          <Routes>
-            <Route path='/dialogs'
-              element={<DialogsContainer />} />
+          <Route path='/dialogs'
+            render={() => <DialogsContainer />} />
 
-            <Route path='/profile'
-              element={<Profile />} />
-            <Route path='/users'
-              element={<UsersContainer />} />
+          <Route path={`/profile/:userId?`}
+            render={() => <ProfileContainer />} />
+          <Route path='/users'
+            render={() => <UsersContainer />} />
 
-            <Route path='/news' element={<News />} />
-            <Route path='/music' element={<Music />} />
-            <Route path='/settings' element={<Settings />} />
-          </Routes>
+          <Route path='/news' render={() => <News />} />
+          <Route path='/music' render={() => <Music />} />
+          <Route path='/settings' render={() => <Settings />} />
         </div>
       </div>
     </BrowserRouter>
