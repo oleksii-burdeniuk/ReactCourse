@@ -8,3 +8,11 @@
   .logo {
     padding: 10;
   }
+  .loginBlock{
+    float: right;
+  }
+  .loginBlock a{
+    color: wheat;
+    text-decoration: none;
+    padding:  10px;
+  }
