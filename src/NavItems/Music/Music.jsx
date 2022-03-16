@@ -1,5 +1,6 @@
-import react from "react";
+import React from "react";
 const Music = () => {
+
   return (
     <p> hello it is music</p>
   );

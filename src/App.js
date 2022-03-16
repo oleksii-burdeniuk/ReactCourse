@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import HeaderContainer from './Header/HeaderContainer';
+import LoginPage from './login/login';
 import Nav from './Nav/Nav';
 import DialogsContainer from './NavItems/Dialogs/DialogsContainer';
 import Music from './NavItems/Music/Music';
@@ -29,6 +30,7 @@ const App = (props) => {
           <Route path='/news' render={() => <News />} />
           <Route path='/music' render={() => <Music />} />
           <Route path='/settings' render={() => <Settings />} />
+          <Route path='/login' render={() => <LoginPage />} />
         </div>
       </div>
     </BrowserRouter>
