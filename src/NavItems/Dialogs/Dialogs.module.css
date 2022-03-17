@@ -1,5 +1,5 @@
 .dialogs{
-  display: grid;
+  display: flex;
   
   padding: 10px;
 };
