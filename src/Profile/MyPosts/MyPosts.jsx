@@ -6,6 +6,7 @@ import s from './MyPosts.module.css'
 import Post from './Post/Post';
 let maxLength30 = maxLength(30)
 const PostsForm = (props) => {
+
   return <form onSubmit={props.handleSubmit}>
     <div>
       <Field placeholder='New text' name='newText' component={Textarea}

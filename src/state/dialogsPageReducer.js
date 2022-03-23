@@ -10,10 +10,10 @@ let initialState = {
   ],
 
   messages: [
-    { message: 'Hello world' },
-    { message: 'I am studying react ' },
-    { message: 'I know how to use react' },
-    { message: 'Do yo know how to use react?' },
+    { id: 1, message: 'Hello world' },
+    { id: 2, message: 'I am studying react ' },
+    { id: 3, message: 'I know how to use react' },
+    { id: 4, message: 'Do yo know how to use react?' },
   ]
 };
 
