@@ -1,45 +1,35 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 
-class ProfileStatus extends React.Component {
+const ProfileStatus = (props) => {
+    let [editMode, setEditMode] = useState(false)
+    let [status, setStatus] = useState(props.status)
 
-    state = {
-        editMode: false,
-        status: this.props.status
+    let activateEditMode = () => {
+        setEditMode(true)
     }
-    activateEditMode() {
-        this.setState({
-            editMode: true,
-            status: this.props.status,
-        })
+    let deactivateEditMode = () => {
+        setEditMode(false)
+        props.updateStatus(status)
     }
-    deactivateEditMode() {
-        this.setState({
-            editMode: false
-        })
-        this.props.updateStatus(this.state.status)
+    let onStatusChange = (e) => {
+        setStatus(e.currentTarget.value)
     }
-    onStatusChange(e) {
-        this.setState({
-            status: e.currentTarget.value
-        })
-
-    }
-
-    render() {
-
-
-        return (
-            <div>
-                {!this.state.editMode &&
-                    <div>
-                        <span onDoubleClick={this.activateEditMode.bind(this)} >{this.props.status || 'NO STATUS'}</span>
-                    </div>}
-                {this.state.editMode &&
-                    <div>
-                        <input onChange={this.onStatusChange.bind(this)} autoFocus={true} onBlur={this.deactivateEditMode.bind(this)} value={this.state.status} type="text" />
-                    </div>}
-            </div >
-        )
-    }
+    useEffect(() => {
+        setStatus(props.status)
+    }, [props.status])
+    return (
+        <div>
+            {!editMode &&
+                <div>
+                    <span onDoubleClick={activateEditMode} >{status || 'NO STATUS'}</span>
+                </div>}
+            {editMode &&
+                <div>
+                    <input onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode} value={status} type="text" />
+                </div>}
+        </div >
+    )
 }
 export default ProfileStatus;
