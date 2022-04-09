@@ -4,7 +4,9 @@ import { Textarea } from '../../common/preloader/formsControls/FormsControls';
 import { maxLength, required } from '../../utils/validators/validators';
 import s from './MyPosts.module.css'
 import Post from './Post/Post';
+
 let maxLength30 = maxLength(30)
+
 const PostsForm = (props) => {
 
   return <form onSubmit={props.handleSubmit}>
@@ -20,7 +22,8 @@ const PostsForm = (props) => {
 }
 
 const ReduxPostsForm = reduxForm({ form: 'post' })(PostsForm)
-const Posts = (props) => {
+
+const Posts = React.memo((props) => {
 
   let postsElement = props.posts.map(p =>
     <Post message={p.message} kay={p.id} />);
@@ -40,6 +43,6 @@ const Posts = (props) => {
       </div>
     </div>
   );
-};
+});
 
 export default Posts;
