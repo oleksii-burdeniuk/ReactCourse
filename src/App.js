@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { compose } from 'redux';
 import './App.css';
@@ -14,6 +14,7 @@ import ProfileContainer from './Profile/ProfileContainer';
 import UsersContainer from './Users/UsersContainer';
 import { initializeApp } from './state/appReducer';
 import Preloader from './common/preloader/Preloader';
+import store from './state/reduxStore';
 
 
 class App extends React.Component {
@@ -52,7 +53,15 @@ const mapStateToProps = (state) => ({
   initialized: state.app.initialized
 })
 
-export default compose(
+const AppContainer = compose(
   connect(mapStateToProps, { initializeApp }))
   (App);
 
+const SamuraiJsApp = (props) => {
+  return <React.StrictMode>
+    <Provider store={store}>
+      <AppContainer />
+    </Provider>
+  </React.StrictMode>
+}
+export default SamuraiJsApp

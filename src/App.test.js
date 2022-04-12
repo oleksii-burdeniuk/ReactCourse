@@ -1,8 +1,9 @@
-// import { render, screen } from '@testing-library/react';
-// import App from './App';
+import { render, screen } from '@testing-library/react';
+import ReactDOM from 'react-dom';
+import SamuraiJsApp from './App';
 
-// test('renders learn react link', () => {
-//   render(<App />);
-//   const linkElement = screen.getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
+test('it renders ', () => {
+    render(<SamuraiJsApp />);
+    const div = document.createElement('div')
+    ReactDOM.render(<SamuraiJsApp />, div)
+});

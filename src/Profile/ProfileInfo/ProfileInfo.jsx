@@ -9,11 +9,15 @@ const ProfileInfo = (props) => {
   }
   return (<div>
     <div>
-      {/* <img alt="" className={s.content_img} src='https://c8.alamy.com/comp/2B21KJP/colorful-evening-sunset-in-small-town-of-chiusi-tuscany-italy-with-houses-roof-rooftops-on-mountain-countryside-rolling-hills-landscape-and-picturesq-2B21KJP.jpg' /> */}
+      {/* <img alt="" className={s.content_img} src={props.profile.photos.small} /> */}
     </div>
     <img src={props.profile.photos.large} alt="" />
     <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+    <div>about Me: {props.profile.aboutMe}</div>
+    <div>Full Name: {props.profile.fullName}</div>
+    <div>Job Description: {props.profile.lookingForAJobDescription}</div>
   </div>
+
   )
 }
 export default ProfileInfo;
